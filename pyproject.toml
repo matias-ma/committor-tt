@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "committor-tt"
+version = "0.1.0"
+description = "Tensor-train committor functions for high-dimensional stochastic systems (Chen, Hoskins, Khoo, Lindsey 2023)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Matias Andia", email = "mati@princeton.edu" },
+]
+keywords = [
+    "committor",
+    "tensor train",
+    "MPS",
+    "rare events",
+    "stochastic processes",
+    "cryo-EM",
+    "conformational dynamics",
+    "RECOVAR",
+    "Ginzburg-Landau",
+    "alternating least squares",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "numpy>=1.23",
+    "scipy>=1.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+]
+notebook = [
+    "jupyter",
+    "matplotlib>=3.5",
+    "ipykernel",
+]
+all = [
+    "committor-tt[dev,notebook]",
+]
+
+[project.urls]
+Repository = "https://github.com/matias-ma/committor_tt"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["committor*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::UserWarning",   # suppress expected ALS basis warnings in tests
+]
+
+[tool.coverage.run]
+source = ["committor"]
+omit = ["tests/*"]
