@@ -224,4 +224,4 @@ Gilles, M. A., Singer, A. (2025). *Cryo-EM heterogeneity analysis using regulari
 
 ## Contact
 
-For any questions, bug reports, or suggestions to reach out at **mati@princeton.edu**.
+For any questions, bug reports, or suggestions feel free to reach out at **mati@princeton.edu**.
