@@ -1,0 +1,55 @@
+This is a historical archive build record, not the current installation guide.
+The bundled private dependency mentioned below has been removed; use INSTALL.md.
+
+Historical validation record from the uploaded archive. Paths below describe
+the pre-restructuring layout; run the listed commands from the repository root
+now. These numerical test results have not been rerun during restructuring.
+
+Packaging validation, 2026-11-02
+
+Installation: editable builds of committor, ftde, and the bundled chebdGE succeeded
+in an isolated virtual environment using the existing scientific dependencies
+(--system-site-packages; pip install --no-deps). This was not a clean download
+and reinstallation of all third-party dependencies. No original environment
+packages were replaced. Normal installation instructions allow pip to resolve
+dependencies and build tools.
+
+Tests ran on CPU, two cores per suite, JAX float64, with JAX persistent cache
+disabled (CHEBTTGE_DISABLE_JAX_CACHE=1) and JAX_PLATFORMS=cpu. Test imports used
+the packaged source trees. The committor suite used the identical original
+chebdGE source; the TT-DE suite used the bundled chebdGE snapshot.
+
+Command, from functional/:
+python -m pytest tests -q
+
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/ma4473/github_updates_2026-11-02/packages/committor-tt/functional
+configfile: pyproject.toml
+plugins: anyio-4.14.2, jaxtyping-0.3.11
+collected 28 items
+
+tests/test_ansatz.py ........                                            [ 28%]
+tests/test_gl_reference.py .....                                         [ 46%]
+tests/test_potentials.py .........                                       [ 78%]
+tests/test_training_double_well.py ...                                   [ 89%]
+tests/test_variational.py ...                                            [100%]
+
+============================= 28 passed in 55.83s ==============================
+
+Environment versions:
+Python 3.11.15
+jax==0.10.2
+jaxlib==0.10.2
+numpy==2.4.6
+scipy==1.17.1
+equinox==0.13.8
+optax==0.2.8
+chebfunjax==0.1.0
+pytest==9.1.1
+
+The original upstream files are checked by SHA-256 against fresh GitHub clones.
+Original README bytes are retained as README_LEGACY.md. The ZIP build checks
+Python syntax, archive CRCs, upstream file hashes, and a 100 MB per-file ceiling.
+LaTeX figure references in the principal write-ups resolve to included figures.
+Large benchmark reruns and the full TT-DE GPU test suite were not run.

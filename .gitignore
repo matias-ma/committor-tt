@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+.DS_Store
+*.aux
+*.blg
+*.log
+*.out
+*.toc
+# Retain shipped figures, PDFs, numerical records and compact input caches.
+/cryoem_data/*.joblib
+/cryoem_data/noise1/
+
+# Private dependencies must be installed separately, never committed.
+/vendor/
+/chebdGE/
